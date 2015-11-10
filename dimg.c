@@ -18,8 +18,8 @@
 struct bitmap_header {
     char type[2];
     int32_t file_size;
-    int16_t _reserved1; // O for Photoshop and Gimp
-    int16_t _reserved2; // 54 for photoshop, 122 for Gimp
+    int16_t _reserved1; 
+    int16_t _reserved2; 
     int32_t data_offset;
 };
 
@@ -31,8 +31,8 @@ struct bitmap_info_header {
     int16_t bits_per_pixel;
     int32_t compression_method;
     int32_t raw_bitmap_data_size;
-    int32_t horizontal_pixel_per_meter;
-    int32_t vertical_pixel_per_meter;
+    int32_t horizontal_pixels_per_meter;
+    int32_t vertical_pixels_per_meter;
     int32_t nb_colors_in_palette;
     int32_t nb_important_colors;
     /* V2 */

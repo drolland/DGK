@@ -91,7 +91,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     DLOGI("GL Context double bufferd (Yes=1,No=0) : %d",get_attr_code);
     
     dgl_init(error);    
-    if (error)
+    if (*error)
         goto error;
     
     return window;

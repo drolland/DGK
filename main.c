@@ -60,11 +60,11 @@ int main(int argc, char** argv) {
     clock_t start = clock();
     DImg* image2 = dimg_resize(image,512,512);
     clock_t stop = clock();
-    float seconds = (float)( stop - start) / CLOCKS_PER_SEC;
-    
+    float seconds = (float)( stop - start) / CLOCKS_PER_SEC * 1000.0f;
+    DLOGI("Resize took %f ms",seconds);
    
     error = NULL;
-    DGK_Window* window = dgk_window_create("Hello",100,100,512,512,&error);
+    DGK_Window* window = dgk_window_create("Hello World",100,100,512,512,&error);
     
     if ( error ){
         DLOG_ERR_F(error,"DGK_Window creation failed");
@@ -93,10 +93,7 @@ int main(int argc, char** argv) {
 */
 
 /*
-    struct timespec sleep_duration;
-    sleep_duration.tv_sec = 5;
-    sleep_duration.tv_nsec = 100000;
-    nanosleep(&sleep_duration,NULL);
+    
     
       
    
@@ -120,6 +117,11 @@ int main(int argc, char** argv) {
 
     
     //nanosleep(&sleep_duration,NULL);
+    
+    struct timespec sleep_duration;
+    sleep_duration.tv_sec = 5;
+    sleep_duration.tv_nsec = 100000;
+    nanosleep(&sleep_duration,NULL);
     
     if ( image ) dimg_free(image);
     if ( image2 ) dimg_free(image2);
