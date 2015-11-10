@@ -27,6 +27,8 @@
       <itemPath>dlogger.h</itemPath>
       <itemPath>dmemory.c</itemPath>
       <itemPath>dmemory.h</itemPath>
+      <itemPath>dstring.c</itemPath>
+      <itemPath>dstring.h</itemPath>
       <itemPath>dthread.h</itemPath>
       <itemPath>dtypes.h</itemPath>
       <itemPath>glad.c</itemPath>
@@ -57,9 +59,6 @@
         <cTool>
           <developmentMode>2</developmentMode>
           <standard>10</standard>
-          <preprocessorList>
-            <Elem>_POSIX_C_SOURCE=200809L</Elem>
-          </preprocessorList>
         </cTool>
         <linkerTool>
           <commandLine>-lSDL2 -pthread -lm -ldl</commandLine>
@@ -94,6 +93,10 @@
       <item path="dmemory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dstring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dstring.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -162,6 +165,10 @@
       <item path="dmemory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dstring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dstring.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>

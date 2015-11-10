@@ -5,7 +5,7 @@
 #include "dmemory.h"
 #include "dlogger.h"
 #include <stdarg.h>
-
+#include "dstring.h"
 
 DError* d_error_new(int code, int level,const char* file,int line, const char* msg,...){
     
@@ -19,7 +19,7 @@ DError* d_error_new(int code, int level,const char* file,int line, const char* m
         error->msg = NULL;
     }
     else {
-        error->file = strdup(file);
+        error->file = d_strdup(file);
         error->line = line;
         
         va_list args;

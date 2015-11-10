@@ -7,7 +7,7 @@ void dgl_init(DError** error){
     
     if(!gladLoadGLLoader(SDL_GL_GetProcAddress)) {
         if (error)
-            *error = DERROR(DERROR_UNKNOW_ERROR,"Can't load gl functions and extensions");
+            *error = DERROR(DERROR_UNKNOW_ERROR,"Can't load glad functions and extensions");
         goto error;
     }
     

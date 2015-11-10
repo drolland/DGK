@@ -91,6 +91,8 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     DLOGI("GL Context double bufferd (Yes=1,No=0) : %d",get_attr_code);
     
     dgl_init(error);    
+    if (error)
+        goto error;
     
     return window;
     
@@ -105,22 +107,3 @@ void dgk_window_free(DGK_Window* window){
     free(window);
 }
 
-void dgk_window_blit_image(DGK_Window* window, DImg* image,int x,int y){
-    int depth;
-    if ( image->color_format == DIMG_COLOR_FORMAT_RGB)
-        depth = 24;
-    else
-        depth = 32;
-    
-    SDL_Surface* img_surf = SDL_LoadBMP("test.bmp");
-    //img_surf = SDL_CreateRGBSurfaceFrom(image->pixels,image->width,image->height,depth,image->pitch,0x000000FF,0x0000FF00,0x00FF0000,0xFF000000);
-    assert(img_surf != 0);
-    SDL_Rect r;
-    r.x = x;
-    r.y = y;
-    r.w = 0;
-    r.h = 0;
-    //SDL_BlitSurface(img_surf,NULL,window->sdl_surface,&r);
-    SDL_UpdateWindowSurface(window->sdl_window);
-    SDL_FreeSurface(img_surf);
-}
