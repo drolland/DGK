@@ -18,6 +18,7 @@
 #include "dgkwindow.h"
 #include <assert.h>
 
+
 /*
  * 
  */
@@ -45,11 +46,13 @@ void *threadfunc(void *parm)
 
 int main(int argc, char** argv) {
         
+    
+    
     DError* error = NULL;
-    DImg* image = dimg_load_from_bmp_file("test3.bmp",&error);
+    DImg* image = dimg_load_from_bmp_file("test.bmp",&error);
     
     if ( error != NULL){
-        DLOG_ERR_C(error,"could not load image %s","test3.bmp");
+        DLOG_ERR_C(error,"could not load image %s","test.bmp");
         d_error_free(error);
     }
     
@@ -58,12 +61,18 @@ int main(int argc, char** argv) {
     DImg* image2 = dimg_resize(image,512,512);
     clock_t stop = clock();
     float seconds = (float)( stop - start) / CLOCKS_PER_SEC;
-    printf("Resize Time %f",seconds);
-   
     
-    //DGK_Window* window = dgk_window_create("Hello",100,100,2048,2048);
-    //dgk_window_blit_image(window,image,0,0);
-    //dgk_window_blit_image(window,image,0,0);
+   
+    error = NULL;
+    DGK_Window* window = dgk_window_create("Hello",100,100,512,512,&error);
+    
+    if ( error ){
+        DLOG_ERR_F(error,"DGK_Window creation failed");
+        exit(EXIT_FAILURE);
+    }
+    
+    //dgk_window_blit_image(window,image2,0,0);
+    //dgk_window_blit_image(window,image2,600,0);
     
     
     

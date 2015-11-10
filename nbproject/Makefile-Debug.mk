@@ -37,10 +37,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/derror.o \
 	${OBJECTDIR}/dgkwindow.o \
+	${OBJECTDIR}/dgl.o \
 	${OBJECTDIR}/dimg.o \
 	${OBJECTDIR}/dlist.o \
 	${OBJECTDIR}/dlogger.o \
 	${OBJECTDIR}/dmemory.o \
+	${OBJECTDIR}/glad.o \
 	${OBJECTDIR}/main.o
 
 
@@ -66,7 +68,7 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL2 -pthread -lm
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL2 -pthread -lm -ldl
 
 ${OBJECTDIR}/derror.o: derror.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -77,6 +79,11 @@ ${OBJECTDIR}/dgkwindow.o: dgkwindow.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkwindow.o dgkwindow.c
+
+${OBJECTDIR}/dgl.o: dgl.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgl.o dgl.c
 
 ${OBJECTDIR}/dimg.o: dimg.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -97,6 +104,11 @@ ${OBJECTDIR}/dmemory.o: dmemory.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
+
+${OBJECTDIR}/glad.o: glad.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/glad.o glad.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}

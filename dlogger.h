@@ -45,7 +45,12 @@ DLoggerGroup* d_logger_get_default_logger();
 
 /* FAST LOGGING MACROS*/
 
+#ifndef NO_DEBUG_LOG
 #define DLOGD(msg,...) d_log(D_LOGGER(d_logger_get_default_logger()),LOGLEVEL_DEBUG,msg,##__VA_ARGS__)
+#else
+#define DLOGD(msg,...)
+#endif
+
 #define DLOGV(msg,...) d_log(D_LOGGER(d_logger_get_default_logger()),LOGLEVEL_VERBOSE,msg,##__VA_ARGS__)
 #define DLOGI(msg,...) d_log(D_LOGGER(d_logger_get_default_logger()),LOGLEVEL_INFO,msg,##__VA_ARGS__)
 #define DLOGW(msg,...) d_log(D_LOGGER(d_logger_get_default_logger()),LOGLEVEL_WARNING,msg,##__VA_ARGS__)

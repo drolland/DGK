@@ -1,3 +1,7 @@
+
+#define NO_DEBUG_LOG
+
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,8 +54,8 @@ DImg* dimg_new_image(int width, int height, int color_format) {
     image->width = width;
     image->height = height;
     image->color_format = color_format;
-    image->pitch = ((width * color_format + 3) / 4) * 4;
-    image->pixels = d_malloc(image->pitch * height * color_format * sizeof (char));
+    image->pitch = ((width * color_format + 3) / 4) * 4 ;
+    image->pixels = aligned_alloc(4 * sizeof(char),image->pitch * height * color_format * sizeof (char) );
     return image;
 }
 

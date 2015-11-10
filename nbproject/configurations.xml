@@ -17,6 +17,8 @@
       <itemPath>derror.h</itemPath>
       <itemPath>dgkwindow.c</itemPath>
       <itemPath>dgkwindow.h</itemPath>
+      <itemPath>dgl.c</itemPath>
+      <itemPath>dgl.h</itemPath>
       <itemPath>dimg.c</itemPath>
       <itemPath>dimg.h</itemPath>
       <itemPath>dlist.c</itemPath>
@@ -27,6 +29,8 @@
       <itemPath>dmemory.h</itemPath>
       <itemPath>dthread.h</itemPath>
       <itemPath>dtypes.h</itemPath>
+      <itemPath>glad.c</itemPath>
+      <itemPath>glad.h</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -58,7 +62,7 @@
           </preprocessorList>
         </cTool>
         <linkerTool>
-          <commandLine>-lSDL2 -pthread -lm</commandLine>
+          <commandLine>-lSDL2 -pthread -lm -ldl</commandLine>
         </linkerTool>
       </compileType>
       <item path="derror.c" ex="false" tool="0" flavor2="0">
@@ -68,6 +72,10 @@
       <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dimg.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -90,6 +98,10 @@
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dtypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="glad.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="glad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -129,6 +141,10 @@
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dgl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dimg.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dimg.h" ex="false" tool="3" flavor2="0">
@@ -150,6 +166,10 @@
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dtypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="glad.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="glad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
