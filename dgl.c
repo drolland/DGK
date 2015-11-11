@@ -7,13 +7,12 @@ void dgl_init(DError** error){
     
     if(!gladLoadGLLoader(SDL_GL_GetProcAddress)) {
         if (error)
-            *error = DERROR(DERROR_UNKNOW_ERROR,"Can't load glad functions and extensions");
+            *error = DERROR("Can't load glad functions and extensions");
         goto error;
     }
     
     DLOGI("OpenGL Version %d.%d loaded", GLVersion.major, GLVersion.minor);
-
-            
+    DLOGI("GPU : %s %s",glGetString(GL_VENDOR),glGetString(GL_RENDERER));        
     
     error:
     return;

@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/dlist.o \
 	${OBJECTDIR}/dlogger.o \
 	${OBJECTDIR}/dmemory.o \
+	${OBJECTDIR}/dsocket.o \
 	${OBJECTDIR}/dstring.o \
 	${OBJECTDIR}/glad.o \
 	${OBJECTDIR}/main.o
@@ -105,6 +106,11 @@ ${OBJECTDIR}/dmemory.o: dmemory.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
+
+${OBJECTDIR}/dsocket.o: dsocket.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dsocket.o dsocket.c
 
 ${OBJECTDIR}/dstring.o: dstring.c 
 	${MKDIR} -p ${OBJECTDIR}

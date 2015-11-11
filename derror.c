@@ -7,12 +7,11 @@
 #include <stdarg.h>
 #include "dstring.h"
 
-DError* d_error_new(int code, int level,const char* file,int line, const char* msg,...){
+DError* d_error_new(int level,const char* file,int line, const char* msg,...){
     
     char* buffer;
     
     DError* error = (DError*)d_malloc(sizeof(DError));
-    error->code = code;
     error->level = level;
     
     if ( msg == NULL){

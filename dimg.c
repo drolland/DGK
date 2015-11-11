@@ -71,7 +71,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     FILE* fd = fopen(filepath, "rb");
     if (fd == NULL) {
         if (error != NULL)
-            *error = DERROR(DERROR_FILE_OPEN, strerror(errno));
+            *error = DERROR(strerror(errno));
         goto error;
     }
 
@@ -80,14 +80,14 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     int fread_count = fread(&bh, sizeof (struct bitmap_header), 1, fd);
     if (fread_count != 1) {
         if (error != NULL)
-            *error = DERROR(DERROR_IO_ERROR, "IO error while reading bitmap header");
+            *error = DERROR("IO error while reading bitmap header");
         goto error;
     }
 
 
     if (!(bh.type[0] == 'B' && bh.type[1] == 'M')) {
         if (error != NULL)
-            *error = DERROR(DERROR_UNSUPPORTED_FORMAT, "Unsuported bitmap type ( Should be windows type )");
+            *error = DERROR("Unsuported bitmap type ( Should be windows type )");
         goto error;
     }
 
@@ -97,19 +97,19 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     fread_count = fread(&bih, sizeof (struct bitmap_info_header), 1, fd);
     if (fread_count != 1) {
         if (error != NULL)
-            *error = DERROR(DERROR_IO_ERROR, "IO error while reading bitmap info header");
+            *error = DERROR("IO error while reading bitmap info header");
         goto error;
     }
 
     if (bih.compression_method != BI_RGB && bih.compression_method != BI_BITFIELD && bih.compression_method != BI_ALPHABITFIELDS) {
         if (error != NULL)
-            *error = DERROR(DERROR_UNSUPPORTED_FORMAT, "Unsuported bitmap compression method");
+            *error = DERROR("Unsuported bitmap compression method");
         goto error;
     }
 
     if (bih.nb_colors_in_palette != 0) {
         if (error != NULL)
-            *error = DERROR(DERROR_UNSUPPORTED_FORMAT, "bitmap color palette unsupported");
+            *error = DERROR("bitmap color palette unsupported");
         goto error;
     }
 
@@ -137,7 +137,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
             bih.A_mask = 0;
         } else if (bih.bits_per_pixel == 16) {
             if (error != NULL)
-                *error = DERROR(DERROR_UNSUPPORTED_FORMAT, "Bitmap file invalid : compression method is BI_RGB but masks must be defined for 16bits");
+                *error = DERROR("Bitmap file invalid : compression method is BI_RGB but masks must be defined for 16bits");
             goto error;
         }
 
@@ -261,7 +261,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
         for (int h = 0; h < new_image->height; h++) {
             if (fread(conversion_buffer, new_image->pitch * sizeof (char), 1, fd) == 0) {
                 if (error != NULL) {
-                    *error = DERROR(DERROR_IO_ERROR, "IO Error while reading pixels data");
+                    *error = DERROR("IO Error while reading pixels data");
                     goto error;
                 }
             }
@@ -285,7 +285,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
         for (int h = 0; h < new_image->height; h++) {
             if (fread(conversion_buffer, new_image->pitch * sizeof (char), 1, fd) == 0) {
                 if (error != NULL) {
-                    *error = DERROR(DERROR_IO_ERROR, "IO Error while reading pixels data");
+                    *error = DERROR("IO Error while reading pixels data");
                     goto error;
                 }
             }
@@ -313,7 +313,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
         for (int h = 0; h < new_image->height; h++) {
             if (fread(conversion_buffer, pitch * sizeof (char), 1, fd) == 0) {
                 if (error != NULL) {
-                    *error = DERROR(DERROR_IO_ERROR, "IO Error while reading pixels data");
+                    *error = DERROR("IO Error while reading pixels data");
                     goto error;
                 }
             }
@@ -327,7 +327,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
         }
     } else {
         if (error != NULL)
-            *error = DERROR(DERROR_UNSUPPORTED_FORMAT, "Unsuported bits depth");
+            *error = DERROR("Unsuported bits depth");
         goto error;
     }
 

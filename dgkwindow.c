@@ -24,7 +24,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     if ( sdl_video_has_been_initialized == FALSE){
         if ( SDL_Init(SDL_INIT_VIDEO) < 0 ){
             if ( error)
-                *error = DERROR(DERROR_UNKNOW_ERROR,"Can't initiliaze SDL_VIDEO, SDL ERROR !",(char*)SDL_GetError());
+                *error = DERROR("Can't initiliaze SDL_VIDEO, SDL ERROR !",(char*)SDL_GetError());
             goto error;
         }
         sdl_video_has_been_initialized = TRUE;
@@ -48,7 +48,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     if ( window->sdl_window == NULL){
         if (error)
-            *error = DERROR(DERROR_UNKNOW_ERROR,"Can't create SDL window, SDL Error : %s",SDL_GetError());
+            *error = DERROR("Can't create SDL window, SDL Error : %s",SDL_GetError());
         goto error;
     }
     
@@ -56,7 +56,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     if ( window->sdl_gl_context == NULL){
         if (error)
-            *error = DERROR(DERROR_UNKNOW_ERROR,"Can't create SDL GL context, SDL Error : %s",SDL_GetError());
+            *error = DERROR("Can't create SDL GL context, SDL Error : %s",SDL_GetError());
         goto error;
     }
     

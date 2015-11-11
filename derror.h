@@ -8,7 +8,6 @@ enum {
 };
 
 typedef struct _derror {
-    int code;
     int level;
     char* file;
     int line;
@@ -16,20 +15,21 @@ typedef struct _derror {
 } DError;
 
 
-DError* d_error_new(int code,int level,const char* file,int line,const char* msg,...);
+DError* d_error_new(int level,const char* file,int line,const char* msg,...);
 
 void d_error_free(DError* error);
 
 /* Fast Macro*/
 
-#define DERROR(code,msg,...) d_error_new(code, ERROR_LEVEL_ERROR, __FILE__, __LINE__, msg,##__VA_ARGS__)
+#define DERROR(msg,...) d_error_new(ERROR_LEVEL_ERROR, __FILE__, __LINE__, msg,##__VA_ARGS__)
 
 enum {
+    DERROR_UNKNOW_ERROR,
     DERROR_IO_ERROR,
     DERROR_FILE_OPEN,
     DERROR_UNSUPPORTED_FORMAT,
     DERROR_BUFFER_OVERFLOW,
-    DERROR_UNKNOW_ERROR
+    
 };
 
 
