@@ -15,12 +15,16 @@
             <file>file:/home/drolland/NetBeansProjects/DGK/derror.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dmemory.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dthread.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dsocket.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dimg.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dsocket.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dimg.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dtypes.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dlist.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgl.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/main.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dlogger.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgl.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/derror.h</file>
         </group>
     </open-files>

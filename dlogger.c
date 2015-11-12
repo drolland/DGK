@@ -7,10 +7,12 @@
 #include "dmemory.h"
 #include "dtypes.h"
 #include "dlist.h"
+#include "dsocket.h"
 
 enum {
     LOGGER_TYPE_CONSOLE,
-    LOGGER_TYPE_GROUP    
+    LOGGER_TYPE_GROUP  ,
+    LOGGER_TYPE_NETWORK
 };
 
 typedef struct _d_logger {
@@ -27,6 +29,11 @@ typedef struct _d_logger_group{
     DLogger logger;
     DSList* children;
 } DLoggerGroup;
+
+typedef struct _d_logger_network{
+    DLogger logger;
+    DSocket* socket;
+} DLoggerNetwork;
 
 static DLoggerGroup* g_default_logger = NULL;
 
@@ -69,7 +76,7 @@ void log_console(DLogger* logger,int log_level,char *msg, va_list vl){
     if ( log_level >= logger->log_level ){
     char* str = build_message(log_level,msg);
     vprintf(str,vl);    
-    printf("\n");
+    printf("\n");    
     free(str);
     }
 }
@@ -81,10 +88,31 @@ void log_group(DLogger* logger,int log_level,char *msg, va_list vl){
     
     while(iter!=NULL){
         DLogger* l = iter->content;
-        l->log(l,log_level,msg,vl);
+        va_list dst;
+        va_copy(dst,vl);
+        l->log(l,log_level,msg,dst);
         iter = iter->next;
     }
 
+}
+
+void log_network(DLogger* logger,int log_level,char *msg, va_list vl){
+    if ( log_level >= logger->log_level ){
+    char* str = build_message(log_level,msg);
+    va_list vl2;
+    va_copy(vl2,vl);
+    char* buffer = NULL;
+    int count = vsnprintf(buffer,0,str,vl);
+    buffer = d_malloc(sizeof(char) * (count+1));
+    vsnprintf(buffer,count+1,str,vl2);
+    DLoggerNetwork* logger_n = (DLoggerNetwork*)logger;
+    DError* error = NULL;
+    d_socket_send(logger_n->socket,buffer,strlen(buffer)+1,&error);
+        if ( error)
+            printf("Network Logger -> %s\n",error->msg);
+    free(buffer);
+    free(str);
+    }
 }
 
 DLoggerConsole* d_logger_console_new(int log_level){
@@ -104,19 +132,42 @@ DLoggerGroup* d_logger_group_new(){
     return new_logger_group;
 }
 
+DLoggerNetwork* d_logger_network_new(int log_level,char* ip,int port,DError** error){
+    DLoggerNetwork* new_logger_network = d_malloc(sizeof(DLoggerNetwork));
+    new_logger_network->socket = d_socket_connect_by_ip(ip,port,error);
+    
+    if ( error && *error)
+        goto error;
+    
+    new_logger_network->logger.log_level = log_level;
+    new_logger_network->logger.log = log_network; 
+    new_logger_network->logger.logger_type = LOGGER_TYPE_NETWORK;
+    return new_logger_network;
+    
+    error:
+    if ( new_logger_network) free(new_logger_network);
+    return NULL;
+}
+
 void d_logger_free(DLogger* logger){
     switch(logger->logger_type){
         case LOGGER_TYPE_CONSOLE:
             free(logger);
             break;
         case LOGGER_TYPE_GROUP:;
-            DLoggerGroup* logger = logger;
-            DSList* iter = logger->children;
+            DLoggerGroup* logger_g = (DLoggerGroup*)logger;
+            DSList* iter = logger_g->children;
             while(iter!=NULL){
                 d_logger_free(iter->content);
                 iter = iter->next;
             }
-            d_slist_free(logger->children);
+            d_slist_free(logger_g->children);
+            free(logger);
+            break;
+        case LOGGER_TYPE_NETWORK:;
+            DLoggerNetwork* logger_n = (DLoggerNetwork*)logger;
+            d_socket_close(logger_n->socket);
+            free(logger_n);
             break;
         default:
             assert(FALSE);

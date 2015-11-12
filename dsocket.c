@@ -33,6 +33,11 @@ DSocket* d_socket_connect_by_ip(char* ip,int port,DError** error) {
     
     new_socket->socket_desc = socket(AF_INET,SOCK_STREAM,0);
     
+/*  Not available on Linux, but kept there in case it would be needed by some other OSs/Platforms
+    int set = 1;
+    setsockopt(new_socket->socket_desc, SOL_SOCKET, SO_NOSIGPIPE, (void *)&set, sizeof(int);
+*/
+    
     if ( new_socket->socket_desc == -1){
         if ( error)
             *error = DERROR("Cant create socket, %s",strerror(errno));
@@ -61,8 +66,8 @@ void d_socket_close(DSocket* socket){
 }
 
 void d_socket_send(DSocket* socket,void* buffer,size_t len,DError** error){
-    if ( send(socket->socket_desc,buffer,len,0) == -1 ){
-        if ( error)
+    if ( send(socket->socket_desc,buffer,len,MSG_NOSIGNAL) == -1 ){
+        if ( error )
             *error = DERROR("Error while sending data, %s",strerror(errno));
     }
 }

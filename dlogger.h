@@ -20,6 +20,8 @@ typedef struct _d_logger_console DLoggerConsole;
 
 typedef struct _d_logger_group DLoggerGroup;
 
+typedef struct _d_logger_network DLoggerNetwork;
+
 /* CASTS */
 
 #define D_LOGGER(X) ((DLogger*)X)
@@ -29,6 +31,8 @@ typedef struct _d_logger_group DLoggerGroup;
 DLoggerConsole* d_logger_console_new(int log_level);
 
 DLoggerGroup* d_logger_group_new();
+
+DLoggerNetwork* d_logger_network_new(int log_level,char* ip,int port,DError** error);
 
 void d_logger_free(DLogger* logger);
 

@@ -75,57 +75,57 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ${OBJECTFILES}
 ${OBJECTDIR}/derror.o: derror.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/derror.o derror.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/derror.o derror.c
 
 ${OBJECTDIR}/dgkwindow.o: dgkwindow.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkwindow.o dgkwindow.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkwindow.o dgkwindow.c
 
 ${OBJECTDIR}/dgl.o: dgl.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgl.o dgl.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgl.o dgl.c
 
 ${OBJECTDIR}/dimg.o: dimg.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dimg.o dimg.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dimg.o dimg.c
 
 ${OBJECTDIR}/dlist.o: dlist.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlist.o dlist.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlist.o dlist.c
 
 ${OBJECTDIR}/dlogger.o: dlogger.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlogger.o dlogger.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlogger.o dlogger.c
 
 ${OBJECTDIR}/dmemory.o: dmemory.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
 
 ${OBJECTDIR}/dsocket.o: dsocket.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dsocket.o dsocket.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dsocket.o dsocket.c
 
 ${OBJECTDIR}/dstring.o: dstring.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dstring.o dstring.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dstring.o dstring.c
 
 ${OBJECTDIR}/glad.o: glad.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/glad.o glad.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/glad.o glad.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 # Subprojects
 .build-subprojects:

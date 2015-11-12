@@ -18,6 +18,7 @@
 #include "dgkwindow.h"
 #include "dsocket.h"
 #include <assert.h>
+#include <string.h>
 
 
 /*
@@ -49,6 +50,18 @@ int main(int argc, char** argv) {
 
 
     DError* error = NULL;
+    DLoggerGroup* default_loger = d_logger_get_default_logger();
+    
+    DLoggerNetwork* network_logger = d_logger_network_new(0,"127.0.0.1",6666,&error);
+    if ( error ){
+        DLOGE("Can't create NetworkLogger");
+    }
+    else{
+       d_logger_group_add_logger(default_loger,(DLogger*)network_logger);
+    }
+    
+    
+    error = NULL;
     DImg* image = dimg_load_from_bmp_file("test.bmp", &error);
 
     if (error != NULL) {
@@ -73,25 +86,7 @@ int main(int argc, char** argv) {
 
     }
 
-    error = NULL;
-    DSocket* socket = d_socket_connect_by_ip("127.0.0.1", 6666, &error);
-    if (error) {
-        DLOG_ERR_E(error, "connection failed");
-        goto error;
-    }
-
-    if (socket != NULL) {
-        error = NULL;
-        char* msg = "Message de test";
-        d_socket_send(socket, msg, strlen(msg)+1, &error);
-        if (error) {
-            DLOG_ERR_E(error, "Socket send failed");
-        }
-
-
-
-    }
-
+    
     //dgk_window_blit_image(window,image2,0,0);
     //dgk_window_blit_image(window,image2,600,0);
 
@@ -143,9 +138,11 @@ int main(int argc, char** argv) {
     sleep_duration.tv_sec = 5;
     sleep_duration.tv_nsec = 100000;
     nanosleep(&sleep_duration, NULL);
+    
+    
 
 error:
-    if (socket) d_socket_close(socket);
+    
     if (window) dgk_window_free(window);
     if (image) dimg_free(image);
     if (image2) dimg_free(image2);

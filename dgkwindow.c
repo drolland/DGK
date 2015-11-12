@@ -46,11 +46,18 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     window->sdl_window = SDL_CreateWindow(title,x,y,width,height,SDL_WINDOW_OPENGL);
     
+       
     if ( window->sdl_window == NULL){
         if (error)
             *error = DERROR("Can't create SDL window, SDL Error : %s",SDL_GetError());
         goto error;
     }
+    
+    int win_w;
+    int win_h;
+    SDL_GetWindowSize(window->sdl_window,&win_w,&win_h);
+    
+    DLOGI("Window created with width : %d and height : %d",win_h,win_h);
     
     window->sdl_gl_context = SDL_GL_CreateContext(window->sdl_window);
     
