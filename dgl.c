@@ -1,3 +1,5 @@
+#ifndef __NO_SDL__
+
 #include "dgl.h"
 #include <SDL2/SDL.h>
 #include "derror.h"
@@ -26,3 +28,4 @@ void dgl_init(DError** error){
     return;
 }
 
+#endif

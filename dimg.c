@@ -55,7 +55,7 @@ DImg* dimg_new_image(int width, int height, int color_format) {
     image->height = height;
     image->color_format = color_format;
     image->pitch = ((width * color_format + 3) / 4) * 4 ;
-    image->pixels = aligned_alloc(4 * sizeof(char),image->pitch * height * color_format * sizeof (char) );
+    image->pixels = d_malloc(image->pitch * height * color_format * sizeof (char) );
     return image;
 }
 
@@ -67,7 +67,8 @@ void dimg_free(DImg* image) {
 DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
 
     DImg* new_image = NULL;
-
+    char* conversion_buffer = NULL;
+    
     FILE* fd = fopen(filepath, "rb");
     if (fd == NULL) {
         if (error != NULL)
@@ -250,7 +251,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     int data_offset = 14 + bih.header_size;
     fseek(fd, data_offset, SEEK_SET);
 
-    char* conversion_buffer = NULL;
+    
 
     if (bih.bits_per_pixel == 32) {
 
@@ -332,11 +333,12 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     }
 
 
-
+    if ( fd ) fclose(fd);
     if (conversion_buffer) free(conversion_buffer);
     return new_image;
 
 error:
+    if ( fd ) fclose(fd);
     if (conversion_buffer) free(conversion_buffer);
     if (new_image) dimg_free(new_image);
     return NULL;

@@ -9,6 +9,10 @@
 #include "dlist.h"
 #include "dsocket.h"
 
+#ifdef __ANDROID__
+#include <android/log.h>
+#endif
+
 enum {
     LOGGER_TYPE_CONSOLE,
     LOGGER_TYPE_GROUP  ,
@@ -75,8 +79,13 @@ char* build_message(int log_level,char* msg){
 void log_console(DLogger* logger,int log_level,char *msg, va_list vl){
     if ( log_level >= logger->log_level ){
     char* str = build_message(log_level,msg);
+#ifdef __ANDROID__
+     __android_log_vprint(ANDROID_LOG_DEBUG, "dgk",str,vl);
+     __android_log_print(ANDROID_LOG_DEBUG, "dgk","\n");
+#else
     vprintf(str,vl);    
-    printf("\n");    
+    printf("\n");  
+#endif
     free(str);
     }
 }
@@ -108,8 +117,14 @@ void log_network(DLogger* logger,int log_level,char *msg, va_list vl){
     DLoggerNetwork* logger_n = (DLoggerNetwork*)logger;
     DError* error = NULL;
     d_socket_send(logger_n->socket,buffer,strlen(buffer)+1,&error);
-        if ( error)
+        if ( error){
+#ifdef __ANDROID__
+            __android_log_print(ANDROID_LOG_DEBUG, "dgk","Network Logger -> %s\n",error->msg);
+#else
             printf("Network Logger -> %s\n",error->msg);
+#endif
+        }
+            
     free(buffer);
     free(str);
     }

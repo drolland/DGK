@@ -1,3 +1,5 @@
+#ifndef __NO_SDL__
+
 #include <SDL2/SDL.h>
 #include <assert.h>
 #include "dtypes.h"
@@ -14,11 +16,14 @@ typedef struct _dgk_window {
         
 } DGK_Window;
 
-#define ES3
+
 
 // TODO : implements all SDL option
 DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,DError** error){
     
+    DLOGI("Creating SDL window");
+    
+            
     DGK_Window* window = NULL;
     
     if ( sdl_video_has_been_initialized == FALSE){
@@ -30,8 +35,8 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
         sdl_video_has_been_initialized = TRUE;
     }
     
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,0);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -114,3 +119,4 @@ void dgk_window_free(DGK_Window* window){
     free(window);
 }
 
+#endif

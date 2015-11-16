@@ -20,6 +20,15 @@
 #include <assert.h>
 #include <string.h>
 
+#ifdef __ANDROID__
+#include <jni.h>
+#include <android/sensor.h>
+#include <android/log.h>
+#include <android_native_app_glue.h>
+#endif
+
+
+
 
 /*
  * 
@@ -47,14 +56,19 @@ void *threadfunc(void *parm) {
 
 int main(int argc, char** argv) {
 
+    struct timespec sleep_duration;
+    sleep_duration.tv_sec = 1;
+    sleep_duration.tv_nsec = 0;
+    nanosleep(&sleep_duration, NULL);
 
 
     DError* error = NULL;
     DLoggerGroup* default_loger = d_logger_get_default_logger();
     
-    DLoggerNetwork* network_logger = d_logger_network_new(0,"127.0.0.1",6666,&error);
+    DLoggerNetwork* network_logger = d_logger_network_new(0,"192.168.1.70",6666,&error);
     if ( error ){
-        DLOGE("Can't create NetworkLogger");
+        DLOG_ERR_E(error,"Can't create NetworkLogger");
+        d_error_free(error);
     }
     else{
        d_logger_group_add_logger(default_loger,(DLogger*)network_logger);
@@ -62,7 +76,8 @@ int main(int argc, char** argv) {
     
     
     error = NULL;
-    DImg* image = dimg_load_from_bmp_file("test.bmp", &error);
+    DImg* image = NULL;
+    image = dimg_load_from_bmp_file("ootest.bmp", &error);
 
     if (error != NULL) {
         DLOG_ERR_C(error, "could not load image %s", "test.bmp");
@@ -71,13 +86,22 @@ int main(int argc, char** argv) {
 
 
     clock_t start = clock();
-    DImg* image2 = dimg_resize(image, 512, 512);
+     DImg* image2 = NULL;
+    if ( image ){
+        image2 = dimg_resize(image, 512, 512);
+    }
     clock_t stop = clock();
     float seconds = (float) (stop - start) / CLOCKS_PER_SEC * 1000.0f;
     DLOGI("Resize took %f ms", seconds);
+    DLOGI("Resize took %f ms*********************************", seconds);
+    
+    DGK_Window* window = NULL;
 
+    
     error = NULL;
-    DGK_Window* window = dgk_window_create("Hello World", 100, 100, 512, 512, &error);
+    DLOGI("Resize took %f ms*********************************", seconds);
+    d_log((DLogger*)network_logger,LOGLEVEL_DEBUG,"TEEEEEEEEEEEEEEEEEEEEEESS");
+    window = dgk_window_create("Hello World", 100, 100, 512, 512, &error);
 
     if (error) {
         DLOG_ERR_F(error, "DGK_Window creation failed");
@@ -134,18 +158,31 @@ int main(int argc, char** argv) {
 
     //nanosleep(&sleep_duration,NULL);
 
-    struct timespec sleep_duration;
+    
+   
     sleep_duration.tv_sec = 5;
-    sleep_duration.tv_nsec = 100000;
+    sleep_duration.tv_nsec = 0;
     nanosleep(&sleep_duration, NULL);
     
     
-
-error:
     
+error:
+    d_log((DLogger*)network_logger,LOGLEVEL_DEBUG,"TEEEEEEEEEEEEEEEEEEEEEESS");
+    DLOGI("Exiting...");
     if (window) dgk_window_free(window);
     if (image) dimg_free(image);
     if (image2) dimg_free(image2);
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
 }
 
+
+
+#ifdef __ANDROID__
+void android_main(struct android_app* state){
+
+    app_dummy();
+    
+    
+    main(0,NULL);
+}
+#endif
