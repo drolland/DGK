@@ -4,11 +4,16 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
 #include <stdio.h>
+
+#ifdef __ANDROID__
+#include <android/log.h>
+#endif
 
 typedef struct _d_socket {
   int socket_desc; // socket descriptor  
@@ -49,6 +54,13 @@ DSocket* d_socket_connect_by_ip(char* ip,int port,DError** error) {
             *error = DERROR("Connection to %s:%d failed",ip,port);
         goto error;
     }
+    
+/*
+    struct linger so_linger;
+    so_linger.l_onoff = TRUE;
+    so_linger.l_linger = 30;
+    setsockopt(new_socket->socket_desc,SOL_SOCKET,SO_LINGER,&so_linger,sizeof(so_linger));
+*/
 
     return new_socket;
     
@@ -59,14 +71,19 @@ DSocket* d_socket_connect_by_ip(char* ip,int port,DError** error) {
 }
 
 void d_socket_close(DSocket* socket){
-    if ( socket->socket_desc > 0)
-        close(socket->socket_desc);
+    if ( socket->socket_desc > 0){
+        shutdown(socket->socket_desc,SHUT_RDWR);
+        close(socket->socket_desc);   
+    }
     free(socket);
         
 }
 
 void d_socket_send(DSocket* socket,void* buffer,size_t len,DError** error){
-    if ( send(socket->socket_desc,buffer,len,MSG_NOSIGNAL) == -1 ){
+
+    int result = send(socket->socket_desc,buffer,len,MSG_NOSIGNAL);
+
+    if ( result == -1){
         if ( error )
             *error = DERROR("Error while sending data, %s",strerror(errno));
     }

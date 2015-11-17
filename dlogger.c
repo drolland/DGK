@@ -81,7 +81,6 @@ void log_console(DLogger* logger,int log_level,char *msg, va_list vl){
     char* str = build_message(log_level,msg);
 #ifdef __ANDROID__
      __android_log_vprint(ANDROID_LOG_DEBUG, "dgk",str,vl);
-     __android_log_print(ANDROID_LOG_DEBUG, "dgk","\n");
 #else
     vprintf(str,vl);    
     printf("\n");  
@@ -114,9 +113,10 @@ void log_network(DLogger* logger,int log_level,char *msg, va_list vl){
     int count = vsnprintf(buffer,0,str,vl);
     buffer = d_malloc(sizeof(char) * (count+1));
     vsnprintf(buffer,count+1,str,vl2);
+    buffer[count] = '\n';
     DLoggerNetwork* logger_n = (DLoggerNetwork*)logger;
     DError* error = NULL;
-    d_socket_send(logger_n->socket,buffer,strlen(buffer)+1,&error);
+    d_socket_send(logger_n->socket,buffer,count+1,&error);
         if ( error){
 #ifdef __ANDROID__
             __android_log_print(ANDROID_LOG_DEBUG, "dgk","Network Logger -> %s\n",error->msg);

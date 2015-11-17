@@ -29,7 +29,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     if ( sdl_video_has_been_initialized == FALSE){
         if ( SDL_Init(SDL_INIT_VIDEO) < 0 ){
             if ( error)
-                *error = DERROR("Can't initiliaze SDL_VIDEO, SDL ERROR !",(char*)SDL_GetError());
+                *error = DERROR("Can't initiliaze SDL_VIDEO, SDL ERROR %s",(char*)SDL_GetError());
             goto error;
         }
         sdl_video_has_been_initialized = TRUE;

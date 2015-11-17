@@ -20,6 +20,7 @@
 #include <assert.h>
 #include <string.h>
 
+
 #ifdef __ANDROID__
 #include <jni.h>
 #include <android/sensor.h>
@@ -92,15 +93,15 @@ int main(int argc, char** argv) {
     }
     clock_t stop = clock();
     float seconds = (float) (stop - start) / CLOCKS_PER_SEC * 1000.0f;
-    DLOGI("Resize took %f ms", seconds);
-    DLOGI("Resize took %f ms*********************************", seconds);
+    //DLOGI("Resize took %f ms", seconds);
+    
     
     DGK_Window* window = NULL;
 
     
     error = NULL;
-    DLOGI("Resize took %f ms*********************************", seconds);
-    d_log((DLogger*)network_logger,LOGLEVEL_DEBUG,"TEEEEEEEEEEEEEEEEEEEEEESS");
+    
+    
     window = dgk_window_create("Hello World", 100, 100, 512, 512, &error);
 
     if (error) {
@@ -160,15 +161,17 @@ int main(int argc, char** argv) {
 
     
    
+/*
     sleep_duration.tv_sec = 5;
     sleep_duration.tv_nsec = 0;
     nanosleep(&sleep_duration, NULL);
+*/
     
     
     
 error:
-    d_log((DLogger*)network_logger,LOGLEVEL_DEBUG,"TEEEEEEEEEEEEEEEEEEEEEESS");
     DLOGI("Exiting...");
+    if ( network_logger ) d_logger_free((DLogger*)network_logger);
     if (window) dgk_window_free(window);
     if (image) dimg_free(image);
     if (image2) dimg_free(image2);
