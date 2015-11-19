@@ -19,13 +19,14 @@
 #include "dsocket.h"
 #include <assert.h>
 #include <string.h>
+#include "SDL_main.h"
 
 
 #ifdef __ANDROID__
 #include <jni.h>
 #include <android/sensor.h>
 #include <android/log.h>
-#include <android_native_app_glue.h>
+//#include <android_native_app_glue.h>
 #endif
 
 
@@ -55,7 +56,7 @@ void *threadfunc(void *parm) {
     pthread_mutex_unlock(&mutex);
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
 
     struct timespec sleep_duration;
     sleep_duration.tv_sec = 1;
@@ -181,11 +182,13 @@ error:
 
 
 #ifdef __ANDROID__
+/*
 void android_main(struct android_app* state){
 
-    app_dummy();
+    //app_dummy();
     
     
     main(0,NULL);
 }
+*/
 #endif

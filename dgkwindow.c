@@ -1,6 +1,6 @@
 #ifndef __NO_SDL__
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <assert.h>
 #include "dtypes.h"
 #include "dgkwindow.h"
@@ -37,7 +37,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,0);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
