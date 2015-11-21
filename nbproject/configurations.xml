@@ -15,10 +15,10 @@
                    projectFiles="true">
       <itemPath>derror.c</itemPath>
       <itemPath>derror.h</itemPath>
+      <itemPath>dgkgl.c</itemPath>
+      <itemPath>dgkgl.h</itemPath>
       <itemPath>dgkwindow.c</itemPath>
       <itemPath>dgkwindow.h</itemPath>
-      <itemPath>dgl.c</itemPath>
-      <itemPath>dgl.h</itemPath>
       <itemPath>dimg.c</itemPath>
       <itemPath>dimg.h</itemPath>
       <itemPath>dlist.c</itemPath>
@@ -76,13 +76,13 @@
       </item>
       <item path="derror.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dgkgl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dgl.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dgl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dimg.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -152,13 +152,13 @@
       </item>
       <item path="derror.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dgkgl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dgl.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dgl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dimg.c" ex="false" tool="0" flavor2="0">
       </item>

@@ -36,8 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/derror.o \
+	${OBJECTDIR}/dgkgl.o \
 	${OBJECTDIR}/dgkwindow.o \
-	${OBJECTDIR}/dgl.o \
 	${OBJECTDIR}/dimg.o \
 	${OBJECTDIR}/dlist.o \
 	${OBJECTDIR}/dlogger.o \
@@ -77,15 +77,15 @@ ${OBJECTDIR}/derror.o: derror.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/derror.o derror.c
 
+${OBJECTDIR}/dgkgl.o: dgkgl.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkgl.o dgkgl.c
+
 ${OBJECTDIR}/dgkwindow.o: dgkwindow.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkwindow.o dgkwindow.c
-
-${OBJECTDIR}/dgl.o: dgl.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgl.o dgl.c
 
 ${OBJECTDIR}/dimg.o: dimg.c 
 	${MKDIR} -p ${OBJECTDIR}

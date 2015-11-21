@@ -6,7 +6,7 @@
 #include "dgkwindow.h"
 #include "dmemory.h"
 #include "dlogger.h"
-#include "dgl.h"
+#include "dgkgl.h"
 
 boolean sdl_video_has_been_initialized = FALSE;
 
@@ -37,7 +37,11 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,0);
+#ifdef __GLES__
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+#else
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+#endif
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
@@ -102,7 +106,7 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     SDL_GL_GetAttribute(SDL_GL_DOUBLEBUFFER,&get_attr_code);
     DLOGI("GL Context double bufferd (Yes=1,No=0) : %d",get_attr_code);
     
-    dgl_init(error);    
+    dgk_gl_init(error);    
     if (*error)
         goto error;
     
