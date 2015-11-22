@@ -1,7 +1,7 @@
 #include <string.h>
 
-#include "dstring.h"
-#include "dmemory.h"
+#include "d_string.h"
+#include "d_memory.h"
 
 char* d_strdup(const char* str){
     int len = strlen(str) + 1;

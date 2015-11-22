@@ -1,6 +1,6 @@
 #pragma once
-#include "dimg.h"
-#include "derror.h"
+#include "d_img.h"
+#include "d_error.h"
 
 typedef struct _dgk_window DGK_Window;
 

@@ -1,5 +1,5 @@
 
-#include "derror.h"
+#include "d_error.h"
 #include <stddef.h>
 
 #pragma once

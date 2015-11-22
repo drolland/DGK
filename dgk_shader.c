@@ -1,6 +1,6 @@
-#include "dgkshader.h"
+#include "dgk_shader.h"
 #include "glad.h"
-#include "dmemory.h"
+#include "d_memory.h"
 
 typedef struct _dgk_shader {
     GLuint program;

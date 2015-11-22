@@ -1,9 +1,9 @@
 #ifndef __NO_SDL__
 
-#include "dgkgl.h"
+#include "dgk_gl.h"
 #include <SDL.h>
-#include "derror.h"
-#include "dlogger.h"
+#include "d_error.h"
+#include "d_logger.h"
 
 
 

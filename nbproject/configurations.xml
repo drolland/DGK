@@ -13,32 +13,32 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>derror.c</itemPath>
-      <itemPath>derror.h</itemPath>
-      <itemPath>dgkgl.c</itemPath>
-      <itemPath>dgkgl.h</itemPath>
-      <itemPath>dgkshader.c</itemPath>
-      <itemPath>dgkshader.h</itemPath>
-      <itemPath>dgkwindow.c</itemPath>
-      <itemPath>dgkwindow.h</itemPath>
-      <itemPath>dimg.c</itemPath>
-      <itemPath>dimg.h</itemPath>
-      <itemPath>dlist.c</itemPath>
-      <itemPath>dlist.h</itemPath>
-      <itemPath>dlogger.c</itemPath>
-      <itemPath>dlogger.h</itemPath>
-      <itemPath>dmemory.c</itemPath>
-      <itemPath>dmemory.h</itemPath>
-      <itemPath>dml.c</itemPath>
-      <itemPath>dml.h</itemPath>
-      <itemPath>dsocket.c</itemPath>
-      <itemPath>dsocket.h</itemPath>
-      <itemPath>dstring.c</itemPath>
-      <itemPath>dstring.h</itemPath>
-      <itemPath>dthread.h</itemPath>
-      <itemPath>dtime.c</itemPath>
-      <itemPath>dtime.h</itemPath>
-      <itemPath>dtypes.h</itemPath>
+      <itemPath>d_error.c</itemPath>
+      <itemPath>d_error.h</itemPath>
+      <itemPath>d_img.c</itemPath>
+      <itemPath>d_img.h</itemPath>
+      <itemPath>d_list.c</itemPath>
+      <itemPath>d_list.h</itemPath>
+      <itemPath>d_logger.c</itemPath>
+      <itemPath>d_logger.h</itemPath>
+      <itemPath>d_memory.c</itemPath>
+      <itemPath>d_memory.h</itemPath>
+      <itemPath>d_ml.c</itemPath>
+      <itemPath>d_ml.h</itemPath>
+      <itemPath>d_socket.c</itemPath>
+      <itemPath>d_socket.h</itemPath>
+      <itemPath>d_string.c</itemPath>
+      <itemPath>d_string.h</itemPath>
+      <itemPath>d_thread.h</itemPath>
+      <itemPath>d_time.c</itemPath>
+      <itemPath>d_time.h</itemPath>
+      <itemPath>d_types.h</itemPath>
+      <itemPath>dgk_gl.c</itemPath>
+      <itemPath>dgk_gl.h</itemPath>
+      <itemPath>dgk_shader.c</itemPath>
+      <itemPath>dgk_shader.h</itemPath>
+      <itemPath>dgk_window.c</itemPath>
+      <itemPath>dgk_window.h</itemPath>
       <itemPath>glad.c</itemPath>
       <itemPath>glad.h</itemPath>
       <itemPath>gui.frag.h</itemPath>
@@ -80,59 +80,59 @@
           <commandLine>-lSDL2 -pthread -lm -ldl</commandLine>
         </linkerTool>
       </compileType>
-      <item path="derror.c" ex="false" tool="0" flavor2="0">
+      <item path="d_error.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="derror.h" ex="false" tool="3" flavor2="0">
+      <item path="d_error.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkgl.c" ex="false" tool="0" flavor2="0">
+      <item path="d_img.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
+      <item path="d_img.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkshader.c" ex="false" tool="0" flavor2="0">
+      <item path="d_list.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkshader.h" ex="false" tool="3" flavor2="0">
+      <item path="d_list.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
+      <item path="d_logger.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
+      <item path="d_logger.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dimg.c" ex="false" tool="0" flavor2="0">
+      <item path="d_memory.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dimg.h" ex="false" tool="3" flavor2="0">
+      <item path="d_memory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dlist.c" ex="false" tool="0" flavor2="0">
+      <item path="d_ml.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dlist.h" ex="false" tool="3" flavor2="0">
+      <item path="d_ml.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dlogger.c" ex="false" tool="0" flavor2="0">
+      <item path="d_socket.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dlogger.h" ex="false" tool="3" flavor2="0">
+      <item path="d_socket.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dmemory.c" ex="false" tool="0" flavor2="0">
+      <item path="d_string.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dmemory.h" ex="false" tool="3" flavor2="0">
+      <item path="d_string.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dml.c" ex="false" tool="0" flavor2="0">
+      <item path="d_thread.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dml.h" ex="false" tool="3" flavor2="0">
+      <item path="d_time.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="d_time.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="d_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_gl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_gl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_shader.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_shader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_window.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_window.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dsocket.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dsocket.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dstring.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dstring.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dthread.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dtime.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dtime.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dtypes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="glad.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -172,59 +172,59 @@
           <commandLine>-lSDL2 -pthread -lm</commandLine>
         </linkerTool>
       </compileType>
-      <item path="derror.c" ex="false" tool="0" flavor2="0">
+      <item path="d_error.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="derror.h" ex="false" tool="3" flavor2="0">
+      <item path="d_error.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkgl.c" ex="false" tool="0" flavor2="0">
+      <item path="d_img.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
+      <item path="d_img.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkshader.c" ex="false" tool="0" flavor2="0">
+      <item path="d_list.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkshader.h" ex="false" tool="3" flavor2="0">
+      <item path="d_list.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
+      <item path="d_logger.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
+      <item path="d_logger.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dimg.c" ex="false" tool="0" flavor2="0">
+      <item path="d_memory.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dimg.h" ex="false" tool="3" flavor2="0">
+      <item path="d_memory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dlist.c" ex="false" tool="0" flavor2="0">
+      <item path="d_ml.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dlist.h" ex="false" tool="3" flavor2="0">
+      <item path="d_ml.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dlogger.c" ex="false" tool="0" flavor2="0">
+      <item path="d_socket.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dlogger.h" ex="false" tool="3" flavor2="0">
+      <item path="d_socket.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dmemory.c" ex="false" tool="0" flavor2="0">
+      <item path="d_string.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="dmemory.h" ex="false" tool="3" flavor2="0">
+      <item path="d_string.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dml.c" ex="false" tool="0" flavor2="0">
+      <item path="d_thread.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="dml.h" ex="false" tool="3" flavor2="0">
+      <item path="d_time.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="d_time.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="d_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_gl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_gl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_shader.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_shader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_window.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_window.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dsocket.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dsocket.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dstring.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dstring.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dthread.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dtime.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="dtime.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dtypes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="glad.c" ex="false" tool="0" flavor2="0">
       </item>

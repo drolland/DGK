@@ -1,7 +1,7 @@
 #pragma once
 
 #include "glad.h"
-#include "derror.h"
+#include "d_error.h"
 
 #ifdef __ANDROID__
 #define __GLES__ 1

@@ -2,12 +2,12 @@
 #include <assert.h>
 #include <stdarg.h>
 #include <string.h>
-#include "dlogger.h"
-#include "derror.h"
-#include "dmemory.h"
-#include "dtypes.h"
-#include "dlist.h"
-#include "dsocket.h"
+#include "d_logger.h"
+#include "d_error.h"
+#include "d_memory.h"
+#include "d_types.h"
+#include "d_list.h"
+#include "d_socket.h"
 
 #ifdef __ANDROID__
 #include <android/log.h>

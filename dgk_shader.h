@@ -1,6 +1,6 @@
 #pragma once
 
-#include "derror.h"
+#include "d_error.h"
 
 typedef struct _dgk_shader DGKShader;
 

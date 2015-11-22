@@ -11,20 +11,20 @@
 #include <thread_db.h>
 #include <signal.h>
 
-#include "dlogger.h"
-#include "derror.h"
-#include "dimg.h"
-#include "dtypes.h"
-#include "dgkwindow.h"
-#include "dsocket.h"
-#include "dml.h"
+#include "d_logger.h"
+#include "d_error.h"
+#include "d_img.h"
+#include "d_types.h"
+#include "dgk_window.h"
+#include "d_socket.h"
+#include "d_ml.h"
 #include <assert.h>
 #include <string.h>
 #include "SDL_main.h"
-#include "dgkshader.h"
+#include "dgk_shader.h"
 #include "gui.vert.h"
 #include "gui.frag.h"
-#include "dtime.h"
+#include "d_time.h"
 
 #ifdef __ANDROID__
 #include <jni.h>

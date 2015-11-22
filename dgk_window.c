@@ -2,11 +2,11 @@
 
 #include <SDL.h>
 #include <assert.h>
-#include "dtypes.h"
-#include "dgkwindow.h"
-#include "dmemory.h"
-#include "dlogger.h"
-#include "dgkgl.h"
+#include "d_types.h"
+#include "dgk_window.h"
+#include "d_memory.h"
+#include "d_logger.h"
+#include "dgk_gl.h"
 
 boolean sdl_video_has_been_initialized = FALSE;
 

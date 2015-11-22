@@ -1,7 +1,7 @@
 #pragma once
 
-#include "derror.h"
-#include "dlist.h"
+#include "d_error.h"
+#include "d_list.h"
 
 enum {
     LOGLEVEL_DEBUG,

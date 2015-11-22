@@ -35,18 +35,18 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/derror.o \
-	${OBJECTDIR}/dgkgl.o \
-	${OBJECTDIR}/dgkshader.o \
-	${OBJECTDIR}/dgkwindow.o \
-	${OBJECTDIR}/dimg.o \
-	${OBJECTDIR}/dlist.o \
-	${OBJECTDIR}/dlogger.o \
-	${OBJECTDIR}/dmemory.o \
-	${OBJECTDIR}/dml.o \
-	${OBJECTDIR}/dsocket.o \
-	${OBJECTDIR}/dstring.o \
-	${OBJECTDIR}/dtime.o \
+	${OBJECTDIR}/d_error.o \
+	${OBJECTDIR}/d_img.o \
+	${OBJECTDIR}/d_list.o \
+	${OBJECTDIR}/d_logger.o \
+	${OBJECTDIR}/d_memory.o \
+	${OBJECTDIR}/d_ml.o \
+	${OBJECTDIR}/d_socket.o \
+	${OBJECTDIR}/d_string.o \
+	${OBJECTDIR}/d_time.o \
+	${OBJECTDIR}/dgk_gl.o \
+	${OBJECTDIR}/dgk_shader.o \
+	${OBJECTDIR}/dgk_window.o \
 	${OBJECTDIR}/glad.o \
 	${OBJECTDIR}/main.o
 
@@ -75,65 +75,65 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL2 -pthread -lm -ldl
 
-${OBJECTDIR}/derror.o: derror.c 
+${OBJECTDIR}/d_error.o: d_error.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/derror.o derror.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_error.o d_error.c
 
-${OBJECTDIR}/dgkgl.o: dgkgl.c 
+${OBJECTDIR}/d_img.o: d_img.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkgl.o dgkgl.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_img.o d_img.c
 
-${OBJECTDIR}/dgkshader.o: dgkshader.c 
+${OBJECTDIR}/d_list.o: d_list.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkshader.o dgkshader.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_list.o d_list.c
 
-${OBJECTDIR}/dgkwindow.o: dgkwindow.c 
+${OBJECTDIR}/d_logger.o: d_logger.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkwindow.o dgkwindow.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_logger.o d_logger.c
 
-${OBJECTDIR}/dimg.o: dimg.c 
+${OBJECTDIR}/d_memory.o: d_memory.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dimg.o dimg.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_memory.o d_memory.c
 
-${OBJECTDIR}/dlist.o: dlist.c 
+${OBJECTDIR}/d_ml.o: d_ml.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlist.o dlist.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_ml.o d_ml.c
 
-${OBJECTDIR}/dlogger.o: dlogger.c 
+${OBJECTDIR}/d_socket.o: d_socket.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dlogger.o dlogger.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_socket.o d_socket.c
 
-${OBJECTDIR}/dmemory.o: dmemory.c 
+${OBJECTDIR}/d_string.o: d_string.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_string.o d_string.c
 
-${OBJECTDIR}/dml.o: dml.c 
+${OBJECTDIR}/d_time.o: d_time.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dml.o dml.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_time.o d_time.c
 
-${OBJECTDIR}/dsocket.o: dsocket.c 
+${OBJECTDIR}/dgk_gl.o: dgk_gl.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dsocket.o dsocket.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_gl.o dgk_gl.c
 
-${OBJECTDIR}/dstring.o: dstring.c 
+${OBJECTDIR}/dgk_shader.o: dgk_shader.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dstring.o dstring.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_shader.o dgk_shader.c
 
-${OBJECTDIR}/dtime.o: dtime.c 
+${OBJECTDIR}/dgk_window.o: dgk_window.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dtime.o dtime.c
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_window.o dgk_window.c
 
 ${OBJECTDIR}/glad.o: glad.c 
 	${MKDIR} -p ${OBJECTDIR}

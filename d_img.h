@@ -1,6 +1,6 @@
 #pragma once
 
-#include "derror.h"
+#include "d_error.h"
 
 enum {
     DIMG_COLOR_FORMAT_RGB = 3,

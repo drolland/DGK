@@ -1,6 +1,6 @@
 
-#include "dmemory.h"
-#include "dlist.h"
+#include "d_memory.h"
+#include "d_list.h"
 
 DSList* d_slist_append(DSList* list,void* to_insert){
         

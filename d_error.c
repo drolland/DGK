@@ -1,11 +1,11 @@
 
 #include <string.h>
 #include <stdio.h>
-#include "derror.h"
-#include "dmemory.h"
-#include "dlogger.h"
+#include "d_error.h"
+#include "d_memory.h"
+#include "d_logger.h"
 #include <stdarg.h>
-#include "dstring.h"
+#include "d_string.h"
 
 DError* d_error_new(int level,const char* file,int line, const char* msg,...){
     

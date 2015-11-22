@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdlib.h>
-#include "dtypes.h"
+#include "d_types.h"
 
 void* d_malloc(size_t size);
 

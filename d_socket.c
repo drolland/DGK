@@ -1,5 +1,5 @@
-#include "dsocket.h"
-#include "dmemory.h"
+#include "d_socket.h"
+#include "d_memory.h"
 
 #include <sys/types.h>
 #include <sys/socket.h>

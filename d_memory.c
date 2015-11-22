@@ -1,5 +1,5 @@
-#include "dmemory.h"
-#include "dtypes.h"
+#include "d_memory.h"
+#include "d_types.h"
 #include <stdio.h>
 
 static boolean g_exit_on_malloc_failure = TRUE;

@@ -10,9 +10,9 @@
 #include <assert.h>
 #include <math.h>
 
-#include "dimg.h"
-#include "dmemory.h"
-#include "dlogger.h"
+#include "d_img.h"
+#include "d_memory.h"
+#include "d_logger.h"
 
 
 struct bitmap_header {
