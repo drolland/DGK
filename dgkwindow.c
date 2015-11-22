@@ -117,6 +117,19 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     return NULL;
 }
 
+void dgk_window_swap(DGK_Window* window){
+    SDL_GL_SwapWindow(window->sdl_window);
+}
+
+void dgk_window_clear_color(float red, float blue, float green, float alpha){
+    glClearColor(red,green,blue,alpha);
+    glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void dgk_window_clear_depth(){
+    glClear(GL_DEPTH_BUFFER_BIT);
+}
+
 void dgk_window_free(DGK_Window* window){
     if ( window->sdl_gl_context) SDL_GL_DeleteContext(window->sdl_gl_context);
     if ( window->sdl_window ) SDL_DestroyWindow(window->sdl_window);

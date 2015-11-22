@@ -17,6 +17,8 @@
       <itemPath>derror.h</itemPath>
       <itemPath>dgkgl.c</itemPath>
       <itemPath>dgkgl.h</itemPath>
+      <itemPath>dgkshader.c</itemPath>
+      <itemPath>dgkshader.h</itemPath>
       <itemPath>dgkwindow.c</itemPath>
       <itemPath>dgkwindow.h</itemPath>
       <itemPath>dimg.c</itemPath>
@@ -27,14 +29,20 @@
       <itemPath>dlogger.h</itemPath>
       <itemPath>dmemory.c</itemPath>
       <itemPath>dmemory.h</itemPath>
+      <itemPath>dml.c</itemPath>
+      <itemPath>dml.h</itemPath>
       <itemPath>dsocket.c</itemPath>
       <itemPath>dsocket.h</itemPath>
       <itemPath>dstring.c</itemPath>
       <itemPath>dstring.h</itemPath>
       <itemPath>dthread.h</itemPath>
+      <itemPath>dtime.c</itemPath>
+      <itemPath>dtime.h</itemPath>
       <itemPath>dtypes.h</itemPath>
       <itemPath>glad.c</itemPath>
       <itemPath>glad.h</itemPath>
+      <itemPath>gui.frag.h</itemPath>
+      <itemPath>gui.vert.h</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -80,6 +88,10 @@
       </item>
       <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dgkshader.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgkshader.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
@@ -100,6 +112,10 @@
       </item>
       <item path="dmemory.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dml.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dml.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dsocket.c" ex="false" tool="0" flavor2="0">
@@ -112,11 +128,19 @@
       </item>
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dtime.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dtime.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dtypes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="glad.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="glad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.frag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.vert.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -156,6 +180,10 @@
       </item>
       <item path="dgkgl.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dgkshader.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgkshader.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dgkwindow.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="dgkwindow.h" ex="false" tool="3" flavor2="0">
@@ -176,6 +204,10 @@
       </item>
       <item path="dmemory.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dml.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dml.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dobject.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dsocket.c" ex="false" tool="0" flavor2="0">
@@ -188,11 +220,19 @@
       </item>
       <item path="dthread.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dtime.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dtime.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dtypes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="glad.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="glad.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.frag.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.vert.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>

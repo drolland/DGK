@@ -37,13 +37,16 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/derror.o \
 	${OBJECTDIR}/dgkgl.o \
+	${OBJECTDIR}/dgkshader.o \
 	${OBJECTDIR}/dgkwindow.o \
 	${OBJECTDIR}/dimg.o \
 	${OBJECTDIR}/dlist.o \
 	${OBJECTDIR}/dlogger.o \
 	${OBJECTDIR}/dmemory.o \
+	${OBJECTDIR}/dml.o \
 	${OBJECTDIR}/dsocket.o \
 	${OBJECTDIR}/dstring.o \
+	${OBJECTDIR}/dtime.o \
 	${OBJECTDIR}/glad.o \
 	${OBJECTDIR}/main.o
 
@@ -82,6 +85,11 @@ ${OBJECTDIR}/dgkgl.o: dgkgl.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkgl.o dgkgl.c
 
+${OBJECTDIR}/dgkshader.o: dgkshader.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgkshader.o dgkshader.c
+
 ${OBJECTDIR}/dgkwindow.o: dgkwindow.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -107,6 +115,11 @@ ${OBJECTDIR}/dmemory.o: dmemory.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dmemory.o dmemory.c
 
+${OBJECTDIR}/dml.o: dml.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dml.o dml.c
+
 ${OBJECTDIR}/dsocket.o: dsocket.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -116,6 +129,11 @@ ${OBJECTDIR}/dstring.o: dstring.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dstring.o dstring.c
+
+${OBJECTDIR}/dtime.o: dtime.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -D_POSIX_C_SOURCE=200809L -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dtime.o dtime.c
 
 ${OBJECTDIR}/glad.o: glad.c 
 	${MKDIR} -p ${OBJECTDIR}

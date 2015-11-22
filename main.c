@@ -17,10 +17,14 @@
 #include "dtypes.h"
 #include "dgkwindow.h"
 #include "dsocket.h"
+#include "dml.h"
 #include <assert.h>
 #include <string.h>
 #include "SDL_main.h"
-
+#include "dgkshader.h"
+#include "gui.vert.h"
+#include "gui.frag.h"
+#include "dtime.h"
 
 #ifdef __ANDROID__
 #include <jni.h>
@@ -112,6 +116,28 @@ int main(int argc, char* argv[]) {
 
     }
 
+    dgk_window_clear_color(0,1,0,0);
+    dgk_window_swap(window);
+            
+    mat4 mat1 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+    mat4 mat2 = {0,0,0,0,0,0,0,0,0,0,0,0,10,12,15,1};
+    vec3 vec = {0,0,0};
+    vec3 vec_res;
+    mat4 res;
+    
+   
+    d_mat4_print(mat1);
+    d_mat4_mul_mat4(res,mat1,mat1);
+    d_mat4_print(res);
+    
+    d_mat4_mul_vec3(vec_res,mat2,vec);
+    printf("%f %f %f\n",vec_res[0],vec_res[1],vec_res[2]);
+    
+    error = NULL;
+    DGKShader* shader = dgk_shader_load(gui_vert_shader,gui_frag_shader,&error);
+    if ( error )
+        DLOG_ERR_E(error,"can't load shader");
+    dgk_shader_bind(shader);
     
     //dgk_window_blit_image(window,image2,0,0);
     //dgk_window_blit_image(window,image2,600,0);
@@ -168,7 +194,7 @@ int main(int argc, char* argv[]) {
     nanosleep(&sleep_duration, NULL);
 */
     
-    
+    d_nanosleep(5,0);
     
 error:
     DLOGI("Exiting...");
