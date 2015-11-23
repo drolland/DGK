@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/d_socket.o \
 	${OBJECTDIR}/d_string.o \
 	${OBJECTDIR}/d_time.o \
+	${OBJECTDIR}/dgk_3dobject.o \
 	${OBJECTDIR}/dgk_gl.o \
 	${OBJECTDIR}/dgk_shader.o \
 	${OBJECTDIR}/dgk_window.o \
@@ -119,6 +120,11 @@ ${OBJECTDIR}/d_time.o: d_time.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_time.o d_time.c
+
+${OBJECTDIR}/dgk_3dobject.o: dgk_3dobject.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_3dobject.o dgk_3dobject.c
 
 ${OBJECTDIR}/dgk_gl.o: dgk_gl.c 
 	${MKDIR} -p ${OBJECTDIR}

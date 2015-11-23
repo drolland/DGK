@@ -3,7 +3,7 @@
 #define MULTI_LINE_STRING(...) #__VA_ARGS__
 
 
-char* gui_vert_shader = \
+static char* gui_vert_shader = \
    "#version 100 \n" \
     MULTI_LINE_STRING (
     uniform mat4 mvp_matrix;

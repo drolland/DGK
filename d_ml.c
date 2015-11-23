@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <math.h>
 
 void d_mat4_mul_mat4(mat4 res,mat4 a,mat4 b){   
     
@@ -41,24 +42,26 @@ void d_mat4_mul_vec3(vec3 res, mat4 m, vec3 v){
 
 void d_mat4_perspective(mat4 res, float fovy, float aspect_ratio, float near, float far){
     
-    res[0][0] = fovy / aspect_ratio;
+    double f = 1/tan(fovy/2);
+    
+    res[0][0] = f / aspect_ratio;
     res[0][1] = 0;
     res[0][2] = 0;
     res[0][3] = 0;
     
     res[1][0] = 0;
-    res[1][1] = fovy;
+    res[1][1] = f;
     res[1][2] = 0;
     res[1][3] = 0;
     
     res[2][0] = 0;
     res[2][1] = 0;
-    res[2][2] = (far + near)/(far - near);
-    res[2][3] = -1;
+    res[2][2] = far/(far - near);
+    res[2][3] = -far*near/(far - near);
 
     res[3][0] = 0;
     res[3][1] = 0;
-    res[3][2] = 2 * far * near / ( far - near);
+    res[3][2] = 1;
     res[3][3] = 0;
 
 }

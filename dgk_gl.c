@@ -29,6 +29,7 @@ void dgk_gl_init(DError** error){
     DLOGI("GL_ARB_vertex_array_object : %d", GLAD_GL_ARB_vertex_array_object);
     DLOGI("GL_OES_vertex_array_object : %d", GLAD_GL_OES_vertex_array_object);
     
+    glEnable(GL_CULL_FACE);
     
     error:
     return;

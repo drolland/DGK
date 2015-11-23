@@ -22,8 +22,7 @@
 #include <string.h>
 #include "SDL_main.h"
 #include "dgk_shader.h"
-#include "gui.vert.h"
-#include "gui.frag.h"
+#include "dgk_3dobject.h"
 #include "d_time.h"
 
 #ifdef __ANDROID__
@@ -134,10 +133,14 @@ int main(int argc, char* argv[]) {
     printf("%f %f %f\n",vec_res[0],vec_res[1],vec_res[2]);
     
     error = NULL;
-    DGKShader* shader = dgk_shader_load(gui_vert_shader,gui_frag_shader,&error);
+    DGKShader* shader = dgk_shader_pool_get_builtin_shader(dgk_shader_pool_get_instance(),DGKSHADER_BUILTIN_SPRITE);
     if ( error )
         DLOG_ERR_E(error,"can't load shader");
     dgk_shader_bind(shader);
+    
+    DGKSprite* sprite = dgk_sprite_new();
+    dgk_3dobject_render((DGK3DObject*)sprite);
+    dgk_window_swap(window);
     
     //dgk_window_blit_image(window,image2,0,0);
     //dgk_window_blit_image(window,image2,600,0);

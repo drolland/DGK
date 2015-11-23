@@ -1,13 +1,25 @@
 #include "dgk_shader.h"
 #include "glad.h"
 #include "d_memory.h"
+#include "gui.vert.h"
+#include "gui.frag.h"
+#include "d_logger.h"
 
 typedef struct _dgk_shader {
     GLuint program;
     
 } DGKShader;
 
+typedef struct _dgk_shader_pool {
+    DGKShader* builtin_shaders[DGKSHADER_BUILTIN_TOTAL];
+    
+} DGKShaderPool;
+
+static DGKShaderPool* g_dgk_shader_pool = NULL;
+
 static DGKShader* current_bind_shader = NULL;
+
+
 
 DGKShader* dgk_shader_load(const char* vert_shader_source,const char* frag_shader_source,DError** error){
     
@@ -127,4 +139,28 @@ void dgk_shader_free(DGKShader* shader){
         current_bind_shader = NULL;
     if ( shader->program ) glDeleteProgram(shader->program);
     if ( shader ) free(shader);    
+}
+
+DGKShaderPool* dgk_shader_pool_new(){
+    
+    DGKShaderPool* new_pool = d_malloc(sizeof(DGKShaderPool));
+    
+    DError* error = NULL;
+    new_pool->builtin_shaders[DGKSHADER_BUILTIN_SPRITE] = dgk_shader_load(gui_vert_shader,gui_frag_shader,&error);
+    if ( error )
+        DLOG_ERR_C(error,"Couldn't load builtin sprite shader");
+    
+    return new_pool;    
+}
+
+DGKShaderPool* dgk_shader_pool_get_instance(){
+    
+    if ( g_dgk_shader_pool == NULL)
+        g_dgk_shader_pool = dgk_shader_pool_new();
+    
+    return g_dgk_shader_pool;
+}
+
+DGKShader* dgk_shader_pool_get_builtin_shader(DGKShaderPool* pool, int shader){
+    return pool->builtin_shaders[shader];
 }

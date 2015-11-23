@@ -4,11 +4,11 @@
 
 #define MULTI_LINE_STRING(...) #__VA_ARGS__
 
-char* gui_frag_shader = \
+static char* gui_frag_shader = \
     "#version 100 \n" \
     MULTI_LINE_STRING (
         
-    const highp vec4 color = vec4(125.0,0.5,0.5,0.5); 
+    const highp vec4 color = vec4(125.5,0.5,0.5,0.5); 
     
     void main(){
     

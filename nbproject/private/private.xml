@@ -7,23 +7,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dml.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkgl.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkwindow.c</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkwindow.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkgl.c</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkshader.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/derror.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_types.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_gl.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_error.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_shader.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_error.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_3dobject.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_ml.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_3dobject.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_time.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_ml.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/gui.frag.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dtime.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/glad.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/glad.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dtime.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_shader.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_time.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_window.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/main.c</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dml.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_window.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/dgk_gl.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/gui.vert.h</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/dgkshader.c</file>
-            <file>file:/home/drolland/NetBeansProjects/DGK/derror.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_thread.h</file>
         </group>
     </open-files>
 </project-private>

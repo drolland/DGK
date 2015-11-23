@@ -33,6 +33,8 @@
       <itemPath>d_time.c</itemPath>
       <itemPath>d_time.h</itemPath>
       <itemPath>d_types.h</itemPath>
+      <itemPath>dgk_3dobject.c</itemPath>
+      <itemPath>dgk_3dobject.h</itemPath>
       <itemPath>dgk_gl.c</itemPath>
       <itemPath>dgk_gl.h</itemPath>
       <itemPath>dgk_shader.c</itemPath>
@@ -119,6 +121,10 @@
       <item path="d_time.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="d_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_3dobject.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_3dobject.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dgk_gl.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -211,6 +217,10 @@
       <item path="d_time.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="d_types.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dgk_3dobject.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="dgk_3dobject.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dgk_gl.c" ex="false" tool="0" flavor2="0">
       </item>
