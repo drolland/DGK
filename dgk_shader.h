@@ -11,9 +11,8 @@ enum {
     DGKSHADER_BUILTIN_TOTAL
 };
 
-DGKShaderPool* dgk_shader_pool_get_instance();
 
-DGKShader* dgk_shader_pool_get_builtin_shader(DGKShaderPool* pool, int shader);
+DGKShader* dgk_shader_pool_get_builtin_shader(int shader);
 
 DGKShader* dgk_shader_load(const char* vert_shader_source,const char* frag_shader_source,DError** error);
 

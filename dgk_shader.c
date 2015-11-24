@@ -11,15 +11,12 @@ typedef struct _dgk_shader {
 } DGKShader;
 
 typedef struct _dgk_shader_pool {
-    DGKShader* builtin_shaders[DGKSHADER_BUILTIN_TOTAL];
-    
+    DGKShader* builtin_shaders[DGKSHADER_BUILTIN_TOTAL]; 
 } DGKShaderPool;
 
 static DGKShaderPool* g_dgk_shader_pool = NULL;
 
 static DGKShader* current_bind_shader = NULL;
-
-
 
 DGKShader* dgk_shader_load(const char* vert_shader_source,const char* frag_shader_source,DError** error){
     
@@ -153,14 +150,11 @@ DGKShaderPool* dgk_shader_pool_new(){
     return new_pool;    
 }
 
-DGKShaderPool* dgk_shader_pool_get_instance(){
+
+DGKShader* dgk_shader_pool_get_builtin_shader(int shader){
     
     if ( g_dgk_shader_pool == NULL)
         g_dgk_shader_pool = dgk_shader_pool_new();
     
-    return g_dgk_shader_pool;
-}
-
-DGKShader* dgk_shader_pool_get_builtin_shader(DGKShaderPool* pool, int shader){
-    return pool->builtin_shaders[shader];
+    return g_dgk_shader_pool->builtin_shaders[shader];
 }

@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
     
     error = NULL;
     DImg* image = NULL;
-    image = dimg_load_from_bmp_file("ootest.bmp", &error);
+    image = d_img_load_from_bmp_file("ootest.bmp", &error);
 
     if (error != NULL) {
         DLOG_ERR_C(error, "could not load image %s", "test.bmp");
@@ -93,7 +93,7 @@ int main(int argc, char* argv[]) {
     clock_t start = clock();
      DImg* image2 = NULL;
     if ( image ){
-        image2 = dimg_resize(image, 512, 512);
+        image2 = d_img_resize(image, 512, 512);
     }
     clock_t stop = clock();
     float seconds = (float) (stop - start) / CLOCKS_PER_SEC * 1000.0f;
@@ -133,12 +133,18 @@ int main(int argc, char* argv[]) {
     printf("%f %f %f\n",vec_res[0],vec_res[1],vec_res[2]);
     
     error = NULL;
-    DGKShader* shader = dgk_shader_pool_get_builtin_shader(dgk_shader_pool_get_instance(),DGKSHADER_BUILTIN_SPRITE);
-    if ( error )
-        DLOG_ERR_E(error,"can't load shader");
-    dgk_shader_bind(shader);
+    DGKTexture* texture = dgk_texture_load_from_bmp_file("test.bmp",&error);
+    if ( error ){
+        DLOG_ERR_F(error, "could not load texture %s", "test.bmp");
+        d_error_free(error);
+        goto error;
+    }
+        
     
     DGKSprite* sprite = dgk_sprite_new();
+    dgk_sprite_set_size(sprite,0.2,0.2);
+    //dgk_sprite_set_position(sprite,0.1,0.4);
+    dgk_3dobject_set_texture((DGK3DObject*)sprite,texture);
     dgk_3dobject_render((DGK3DObject*)sprite);
     dgk_window_swap(window);
     
@@ -201,10 +207,11 @@ int main(int argc, char* argv[]) {
     
 error:
     DLOGI("Exiting...");
+    if ( texture ) dgk_texture_free(texture);
     if ( network_logger ) d_logger_free((DLogger*)network_logger);
     if (window) dgk_window_free(window);
-    if (image) dimg_free(image);
-    if (image2) dimg_free(image2);
+    if (image) d_img_free(image);
+    if (image2) d_img_free(image2);
     exit(EXIT_FAILURE);
 }
 

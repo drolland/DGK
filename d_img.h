@@ -22,10 +22,10 @@ typedef struct _dimg {
 #define PIXEL_B(img,x,y) img->pixels[(x)*img->color_format+(y)*img->pitch+2]
 #define PIXEL_A(img,x,y) img->pixels[(x)*img->color_format+(y)*img->pitch+3]
 
-DImg* dimg_new_image(int width,int height,int color_format);
+DImg* d_img_new_image(int width,int height,int color_format);
 
-void dimg_free(DImg* image);
+void d_img_free(DImg* image);
 
-DImg* dimg_load_from_bmp_file(char* filepath,DError** error);
+DImg* d_img_load_from_bmp_file(char* filepath,DError** error);
 
-DImg* dimg_resize(DImg* img,int width,int height);
+DImg* d_img_resize(DImg* img,int width,int height);

@@ -49,7 +49,7 @@ enum {
     BI_ALPHABITFIELDS = 6
 };
 
-DImg* dimg_new_image(int width, int height, int color_format) {
+DImg* d_img_new_image(int width, int height, int color_format) {
     DImg* image = d_malloc(sizeof (DImg));
     image->width = width;
     image->height = height;
@@ -59,12 +59,12 @@ DImg* dimg_new_image(int width, int height, int color_format) {
     return image;
 }
 
-void dimg_free(DImg* image) {
+void d_img_free(DImg* image) {
     if (image->pixels) free(image->pixels);
     free(image);
 }
 
-DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
+DImg* d_img_load_from_bmp_file(char* filepath, DError** error) {
 
     DImg* new_image = NULL;
     char* conversion_buffer = NULL;
@@ -255,7 +255,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
 
     if (bih.bits_per_pixel == 32) {
 
-        new_image = dimg_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGBA);
+        new_image = d_img_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGBA);
 
         conversion_buffer = d_malloc(new_image->pitch * sizeof (char));
         
@@ -279,7 +279,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
 
     } else if (bih.bits_per_pixel == 24) {
 
-        new_image = dimg_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGB);
+        new_image = d_img_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGB);
 
         conversion_buffer = d_malloc(new_image->pitch * sizeof (char));
         
@@ -303,9 +303,9 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
     } else if (bih.bits_per_pixel == 16) {
         
         if (A_bit_depth > 0) {
-            new_image = dimg_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGBA);
+            new_image = d_img_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGBA);
         } else {
-            new_image = dimg_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGB);
+            new_image = d_img_new_image(bih.width, bih.height, DIMG_COLOR_FORMAT_RGB);
         }
 
         int pitch = ((new_image->width * 2 + 3) / 4) * 4;
@@ -340,7 +340,7 @@ DImg* dimg_load_from_bmp_file(char* filepath, DError** error) {
 error:
     if ( fd ) fclose(fd);
     if (conversion_buffer) free(conversion_buffer);
-    if (new_image) dimg_free(new_image);
+    if (new_image) d_img_free(new_image);
     return NULL;
 
 }
@@ -392,9 +392,9 @@ static inline unsigned char get_interpolated_pixel_bilinear(DImg* img, int color
     return ( 1.0f - ey) * interpol_x_1 + (ey) * interpol_x_2;
 }
 
-DImg* dimg_resize(DImg* img, int width, int height) {
+DImg* d_img_resize(DImg* img, int width, int height) {
 
-    DImg* new_image = dimg_new_image(width, height, img->color_format);
+    DImg* new_image = d_img_new_image(width, height, img->color_format);
 
     float scale_factor_x = (float) img->width / (float) width;
     float scale_factor_y = (float) img->height / (float) height;

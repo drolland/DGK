@@ -9,9 +9,12 @@ static char* gui_vert_shader = \
     uniform mat4 mvp_matrix;
 
     attribute vec3 v_position;
-
+    attribute vec2 v_tex_coord;
+    
+    varying vec2 tex_coord;
     void main(){
-
+        
+        tex_coord = v_tex_coord;
         gl_Position = mvp_matrix * vec4(v_position,1);
 
     }

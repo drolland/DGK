@@ -47,6 +47,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/dgk_3dobject.o \
 	${OBJECTDIR}/dgk_gl.o \
 	${OBJECTDIR}/dgk_shader.o \
+	${OBJECTDIR}/dgk_texture.o \
 	${OBJECTDIR}/dgk_window.o \
 	${OBJECTDIR}/glad.o \
 	${OBJECTDIR}/main.o
@@ -135,6 +136,11 @@ ${OBJECTDIR}/dgk_shader.o: dgk_shader.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_shader.o dgk_shader.c
+
+${OBJECTDIR}/dgk_texture.o: dgk_texture.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dgk_texture.o dgk_texture.c
 
 ${OBJECTDIR}/dgk_window.o: dgk_window.c 
 	${MKDIR} -p ${OBJECTDIR}
