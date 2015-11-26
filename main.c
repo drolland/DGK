@@ -100,13 +100,12 @@ int main(int argc, char* argv[]) {
     //DLOGI("Resize took %f ms", seconds);
     
     
-    DGK_Window* window = NULL;
 
     
     error = NULL;
     
     
-    window = dgk_window_create("Hello World", 100, 100, 512, 512, &error);
+    dgk_window_create("Hello World", 100, 100, 512, 512, &error);
 
     if (error) {
         DLOG_ERR_F(error, "DGK_Window creation failed");
@@ -116,7 +115,7 @@ int main(int argc, char* argv[]) {
     }
 
     dgk_window_clear_color(0,1,0,0);
-    dgk_window_swap(window);
+    dgk_window_swap();
             
     mat4 mat1 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
     mat4 mat2 = {0,0,0,0,0,0,0,0,0,0,0,0,10,12,15,1};
@@ -146,7 +145,7 @@ int main(int argc, char* argv[]) {
     //dgk_sprite_set_position(sprite,0.1,0.4);
     dgk_3dobject_set_texture((DGK3DObject*)sprite,texture);
     dgk_3dobject_render((DGK3DObject*)sprite);
-    dgk_window_swap(window);
+    dgk_window_swap();
     
     //dgk_window_blit_image(window,image2,0,0);
     //dgk_window_blit_image(window,image2,600,0);
@@ -209,7 +208,6 @@ error:
     DLOGI("Exiting...");
     if ( texture ) dgk_texture_free(texture);
     if ( network_logger ) d_logger_free((DLogger*)network_logger);
-    if (window) dgk_window_free(window);
     if (image) d_img_free(image);
     if (image2) d_img_free(image2);
     exit(EXIT_FAILURE);

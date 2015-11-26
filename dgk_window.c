@@ -10,21 +10,30 @@
 
 boolean sdl_video_has_been_initialized = FALSE;
 
+
 typedef struct _dgk_window {
     SDL_Window* sdl_window;
     SDL_GLContext* sdl_gl_context;
         
 } DGK_Window;
 
+DGK_Window* g_global_dgk_window = NULL;
 
+void dgk_window_free(DGK_Window* window){
+    if ( window->sdl_gl_context) SDL_GL_DeleteContext(window->sdl_gl_context);
+    if ( window->sdl_window ) SDL_DestroyWindow(window->sdl_window);
+    free(window);
+}
 
-// TODO : implements all SDL option
-DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,DError** error){
+// TODO : implements all SDL options
+void dgk_window_create(char* title, int x, int y, int width, int height,DError** error){
     
-    DLOGI("Creating SDL window");
-    
+    if ( g_global_dgk_window != NULL){
+        dgk_window_free(g_global_dgk_window);
+        g_global_dgk_window = NULL;        
+    }
             
-    DGK_Window* window = NULL;
+    DLOGI("Creating SDL window");
     
     if ( sdl_video_has_been_initialized == FALSE){
         if ( SDL_Init(SDL_INIT_VIDEO) < 0 ){
@@ -49,14 +58,14 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    window = d_malloc(sizeof(DGK_Window));
-    window->sdl_window = NULL;
-    window->sdl_gl_context = NULL;
+    g_global_dgk_window = d_malloc(sizeof(DGK_Window));
+    g_global_dgk_window->sdl_window = NULL;
+    g_global_dgk_window->sdl_gl_context = NULL;
     
-    window->sdl_window = SDL_CreateWindow(title,x,y,width,height,SDL_WINDOW_OPENGL);
+    g_global_dgk_window->sdl_window = SDL_CreateWindow(title,x,y,width,height,SDL_WINDOW_OPENGL);
     
        
-    if ( window->sdl_window == NULL){
+    if ( g_global_dgk_window->sdl_window == NULL){
         if (error)
             *error = DERROR("Can't create SDL window, SDL Error : %s",SDL_GetError());
         goto error;
@@ -64,13 +73,13 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     
     int win_w;
     int win_h;
-    SDL_GetWindowSize(window->sdl_window,&win_w,&win_h);
+    SDL_GetWindowSize(g_global_dgk_window->sdl_window,&win_w,&win_h);
     
     DLOGI("Window created with width : %d and height : %d",win_w,win_h);
     
-    window->sdl_gl_context = SDL_GL_CreateContext(window->sdl_window);
+    g_global_dgk_window->sdl_gl_context = SDL_GL_CreateContext(g_global_dgk_window->sdl_window);
     
-    if ( window->sdl_gl_context == NULL){
+    if ( g_global_dgk_window->sdl_gl_context == NULL){
         if (error)
             *error = DERROR("Can't create SDL GL context, SDL Error : %s",SDL_GetError());
         goto error;
@@ -110,15 +119,18 @@ DGK_Window* dgk_window_create(char* title, int x, int y, int width, int height,D
     if (*error)
         goto error;
     
-    return window;
+    return;
     
     error:
-    if ( window ) dgk_window_free(window);
-    return NULL;
+    if ( g_global_dgk_window ) {
+        dgk_window_free(g_global_dgk_window);
+        g_global_dgk_window = NULL;
+    }
+    return;
 }
 
-void dgk_window_swap(DGK_Window* window){
-    SDL_GL_SwapWindow(window->sdl_window);
+void dgk_window_swap(){
+    SDL_GL_SwapWindow(g_global_dgk_window->sdl_window);
 }
 
 void dgk_window_clear_color(float red, float blue, float green, float alpha){
@@ -130,10 +142,6 @@ void dgk_window_clear_depth(){
     glClear(GL_DEPTH_BUFFER_BIT);
 }
 
-void dgk_window_free(DGK_Window* window){
-    if ( window->sdl_gl_context) SDL_GL_DeleteContext(window->sdl_gl_context);
-    if ( window->sdl_window ) SDL_DestroyWindow(window->sdl_window);
-    free(window);
-}
+
 
 #endif
