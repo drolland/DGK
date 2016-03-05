@@ -61,4 +61,5 @@ void dgk_texture_bind(DGKTexture* texture){
 
 void dgk_texture_free(DGKTexture* texture){
     glDeleteTextures(1,&texture->gl_texture);
+    if ( texture ) free(texture);
 }

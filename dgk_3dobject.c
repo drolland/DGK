@@ -3,6 +3,7 @@
 #include "d_memory.h"
 #include "d_ml.h"
 #include "dgk_shader.h"
+#include "d_logger.h"
 
 
 typedef struct _dgk_3dobject {
@@ -75,6 +76,11 @@ void sprite_render(DGK3DObject* object) {
 }
 
 void sprite_init_global_mesh() {
+    
+    if ( g_sprite_mesh.has_been_initalised == TRUE){
+        DLOGW("Sprite global mesh has already been initialized");
+        return;
+    }
 
     glGenBuffers(1, &g_sprite_mesh.vbo_vertex_array);
     glBindBuffer(GL_ARRAY_BUFFER, g_sprite_mesh.vbo_vertex_array);
