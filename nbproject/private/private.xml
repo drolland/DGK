@@ -10,6 +10,7 @@
             <file>file:/home/drolland/NetBeansProjects/DGK/d_types.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_logger.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_ml.h</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_string.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_ml.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_socket.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/glad.c</file>
@@ -27,12 +28,16 @@
             <file>file:/home/drolland/NetBeansProjects/DGK/dgk_3dobject.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_socket.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dgk_texture.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_list.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dgk_3dobject.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_list.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_time.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_string.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/gui.frag.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dgk_shader.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_time.h</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/main.c</file>
+            <file>file:/home/drolland/NetBeansProjects/DGK/d_memory.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/dgk_gl.c</file>
             <file>file:/home/drolland/NetBeansProjects/DGK/d_logger.h</file>
         </group>

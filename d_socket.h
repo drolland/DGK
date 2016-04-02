@@ -12,7 +12,7 @@ typedef struct _d_socket_adress {
 } DSocketAdress;
 
 
-DSocket*    d_socket_connect_by_ip(char* ip,int port,DError** error);
+DSocket* d_socket_connect_by_ip(char* ip,int port,DError** error);
 
 void d_socket_close(DSocket* socket);
 

@@ -35,15 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/d_error.o \
-	${OBJECTDIR}/d_img.o \
-	${OBJECTDIR}/d_list.o \
-	${OBJECTDIR}/d_logger.o \
-	${OBJECTDIR}/d_memory.o \
-	${OBJECTDIR}/d_ml.o \
-	${OBJECTDIR}/d_socket.o \
-	${OBJECTDIR}/d_string.o \
-	${OBJECTDIR}/d_time.o \
 	${OBJECTDIR}/dgk_3dobject.o \
 	${OBJECTDIR}/dgk_gl.o \
 	${OBJECTDIR}/dgk_shader.o \
@@ -67,60 +58,17 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=../DLib/dist/Debug/GNU-Linux/libdlib.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk
 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ../DLib/dist/Debug/GNU-Linux/libdlib.a
+
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL2 -pthread -lm -ldl
-
-${OBJECTDIR}/d_error.o: d_error.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_error.o d_error.c
-
-${OBJECTDIR}/d_img.o: d_img.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_img.o d_img.c
-
-${OBJECTDIR}/d_list.o: d_list.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_list.o d_list.c
-
-${OBJECTDIR}/d_logger.o: d_logger.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_logger.o d_logger.c
-
-${OBJECTDIR}/d_memory.o: d_memory.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_memory.o d_memory.c
-
-${OBJECTDIR}/d_ml.o: d_ml.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_ml.o d_ml.c
-
-${OBJECTDIR}/d_socket.o: d_socket.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_socket.o d_socket.c
-
-${OBJECTDIR}/d_string.o: d_string.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_string.o d_string.c
-
-${OBJECTDIR}/d_time.o: d_time.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -O -D_POSIX_C_SOURCE\ =\ 199309L -I/usr/include/SDL2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/d_time.o d_time.c
 
 ${OBJECTDIR}/dgk_3dobject.o: dgk_3dobject.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -159,6 +107,7 @@ ${OBJECTDIR}/main.o: main.c
 
 # Subprojects
 .build-subprojects:
+	cd ../DLib && ${MAKE} -j -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
@@ -167,6 +116,7 @@ ${OBJECTDIR}/main.o: main.c
 
 # Subprojects
 .clean-subprojects:
+	cd ../DLib && ${MAKE} -j -f Makefile CONF=Debug clean
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl
