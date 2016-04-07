@@ -19,7 +19,7 @@ DSList* d_slist_prepend(DSList* list,void* to_insert);
  */
 void d_slist_free(DSList* list);
 
-/* Free a list but not its content
+/* Free a list and its content
  */
 void d_slist_free_full(DSList* list,void (*DFreeFunc)(void*));
 

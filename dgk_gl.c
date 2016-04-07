@@ -1,7 +1,7 @@
 #ifndef __NO_SDL__
 
 #include "dgk_gl.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include "d_error.h"
 #include "d_logger.h"
 

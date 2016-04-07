@@ -1,6 +1,6 @@
 #ifndef __NO_SDL__
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <assert.h>
 #include "d_types.h"
 #include "dgk_window.h"

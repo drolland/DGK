@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux
-CND_DLIB_EXT=so
+CND_PLATFORM=MinGW64-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -58,17 +58,17 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=../DLib/dist/Debug/GNU-Linux/libdlib.a
+LDLIBSOPTIONS=../DLib/dist/Debug/MinGW64-Windows/libdlib.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ../DLib/dist/Debug/GNU-Linux/libdlib.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk.exe: ../DLib/dist/Debug/MinGW64-Windows/libdlib.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL2 -pthread -lm -ldl
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk ${OBJECTFILES} ${LDLIBSOPTIONS} -lmingw32 -lSDL2main -lSDL2 -pthread -lm -lws2_32
 
 ${OBJECTDIR}/dgk_3dobject.o: dgk_3dobject.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -112,7 +112,7 @@ ${OBJECTDIR}/main.o: main.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/dgk.exe
 
 # Subprojects
 .clean-subprojects:

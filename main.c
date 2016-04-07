@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <thread_db.h>
+#include <pthread.h>
 #include <signal.h>
 
 #include "d_logger.h"
@@ -20,7 +20,7 @@
 #include "d_ml.h"
 #include <assert.h>
 #include <string.h>
-#include "SDL_main.h"
+#include "SDL2/SDL_main.h"
 #include "dgk_shader.h"
 #include "dgk_3dobject.h"
 #include "d_time.h"

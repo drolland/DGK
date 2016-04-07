@@ -43,7 +43,7 @@ typedef struct _d_logger_network {
 static DLoggerGroup* g_default_logger = NULL;
 
 char* build_message(int log_level, char* msg) {
-    char* str = d_malloc(sizeof (char)*strlen(msg) + 32 * sizeof (char));
+    char* str = d_malloc(sizeof(char) * (strlen(msg) + 32) );
 
     switch (log_level) {
         case LOGLEVEL_DEBUG:

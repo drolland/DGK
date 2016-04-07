@@ -43,9 +43,10 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="1" platformSpecific="true">
       <toolsSet>
         <compilerSet>default</compilerSet>
+        <platform>3</platform>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -62,9 +63,9 @@
         </cTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../DLib/dist/Debug/GNU-Linux/libdlib.a</linkerLibFileItem>
+            <linkerLibFileItem>../DLib/dist/Debug/MinGW64-Windows/libdlib.a</linkerLibFileItem>
           </linkerLibItems>
-          <commandLine>-lSDL2 -pthread -lm -ldl</commandLine>
+          <commandLine>-lmingw32 -lSDL2main -lSDL2 -pthread -lm -lws2_32</commandLine>
         </linkerTool>
         <requiredProjects>
           <makeArtifact PL="../DLib"
